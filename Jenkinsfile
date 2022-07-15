@@ -1,5 +1,6 @@
 def code
 
+node {
 
   stage('Checkout') {
     checkout scm
@@ -13,5 +14,5 @@ def code
     code.example1()
   }
 
-
+}
 code.example2()
