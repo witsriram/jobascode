@@ -1,23 +1,17 @@
-pipeline { 
-    agent any 
-    options {
-        skipStagesAfterUnstable()
-    }
-    stages {
-        stage('Build') { 
-            steps { 
-                sh 'echo "Build"'
-            }
-        }
-        stage('Test'){
-            steps {
-                sh 'echo "Test"'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'echo "Test"'
-            }
-        }
-    }
-}
+def code
+
+
+  stage('Checkout') {
+    checkout scm
+  }
+
+  stage('Load') {
+    code = load 'example.groovy'
+  }
+
+  stage('Execute') {
+    code.example1()
+  }
+
+
+code.example2()
