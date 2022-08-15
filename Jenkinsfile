@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                 echo '${params.SITE_NAME}'
+                 echo ${params.SITE_NAME}
             }
         }
         stage('Test') {
