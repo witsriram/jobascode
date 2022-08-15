@@ -1,20 +1,15 @@
-pipelineJob("greetingJob") {
-  
-  parameters {
-         stringParam('name', "", 'name of the person')
-        }  definition {
-           cps {
-             script('''
-                 pipeline {
-                    agent any                    stages {
-                        stage('Greet') {
-                            steps {
-                                echo "Hello!! ${name}"
-                            }
-                         }
-                      }
-                   }
-              '''.stripIndent())       sandbox()
-          }
-      }
-  }
+job('demo') {
+    steps {
+        shell('echo Hello World!')
+    }
+}
+
+pipelineJob("github-demo") {
+    description("Upgrading baremetal firmware")
+    logRotator {
+        daysToKeep(90)
+    }
+    parameters {
+        stringParam('Your name', '', 'Site name to display in build topic')
+    }
+}
