@@ -1,9 +1,3 @@
-job('demo') {
-    steps {
-        shell('echo Hello World!')
-    }
-}
-
 pipelineJob("github-demo") {
     description("Upgrading baremetal firmware")
     logRotator {
